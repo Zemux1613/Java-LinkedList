@@ -1,3 +1,5 @@
+package de.toml;
+
 import lombok.Getter;
 import lombok.Setter;
 

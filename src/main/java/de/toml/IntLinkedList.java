@@ -1,4 +1,4 @@
-import lombok.NoArgsConstructor;
+package de.toml;
 
 import java.util.StringJoiner;
 

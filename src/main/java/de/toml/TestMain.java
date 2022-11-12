@@ -1,3 +1,5 @@
+package de.toml;
+
 public class TestMain {
     public static void main(String[] args) {
         final IntLinkedList linkedList = new IntLinkedList();
