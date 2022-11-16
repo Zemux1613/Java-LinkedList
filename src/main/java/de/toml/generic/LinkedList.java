@@ -1,7 +1,6 @@
 package de.toml.generic;
 
-import de.toml.IntLinkedList;
-import de.toml.IntListNode;
+import lombok.Getter;
 
 import java.util.StringJoiner;
 
@@ -9,15 +8,25 @@ public class LinkedList {
     private Class type;
     private ListNode firstNode;
 
+    private LinkedIterator iterator;
+
+    public LinkedIterator getIterator() {
+        if (iterator == null) {
+            this.iterator = new LinkedIterator(this.firstNode);
+        }
+        return iterator;
+    }
+
     /**
      * @param value item to add
-     * @return LinkedList with item
      * @param <T>
+     * @return LinkedList with item
      */
     public <T> LinkedList add(final T value) {
         if (firstNode == null) {
             type = value.getClass();
             firstNode = new ListNode(value, null);
+            this.iterator = new LinkedIterator(this.firstNode);
         } else {
             if (type != null) {
                 if (value.getClass() != type) {
@@ -60,12 +69,13 @@ public class LinkedList {
 
     /**
      * @param value item to add
-     * @return add item at start
      * @param <T>
+     * @return add item at start
      */
     public <T> LinkedList addAtStart(final T value) {
         this.type = value.getClass();
         this.firstNode = new ListNode(value, this.firstNode);
+        this.iterator = new LinkedIterator(this.firstNode);
         return this;
     }
 }
