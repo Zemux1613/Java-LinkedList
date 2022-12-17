@@ -1,7 +1,5 @@
 package de.toml.generic;
 
-import lombok.Getter;
-
 import java.util.StringJoiner;
 
 public class LinkedList {
